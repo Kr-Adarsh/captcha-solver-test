@@ -1,48 +1,51 @@
 # captcha-solver-test
 
 ## Summary
-This web application provides a simple and effective math-based captcha verification system designed to distinguish human users from automated scripts. It generates random arithmetic challenges that users must solve to successfully verify their session.
+This web application provides a comprehensive interface for testing and interacting with various captcha verification methods. It allows users to switch between different security challenges while tracking their performance through real-time session statistics.
 
 Project Deployed at: https://Kr-Adarsh.github.io/captcha-solver-test/
 
 ## Features
-*   **Dynamic Problem Generation:** Automatically creates a new math problem every time the page loads or resets.
-*   **Instant Validation:** Provides immediate feedback upon clicking the verify button.
-*   **Visual Feedback:** Uses color-coded messages (green for success, red for error) to communicate status.
-*   **Auto-Reset Logic:** Automatically generates a new challenge following an incorrect submission to enhance security.
-*   **Manual Refresh:** Includes a dedicated button to skip the current captcha and generate a new one without submitting.
+*   **Multiple Captcha Modes**: Support for Math, Text-based Canvas, and Slider-based verification.
+*   **Dynamic Switching**: A dropdown menu allows seamless transitions between captcha types without page reloads.
+*   **Session Tracking**: Persistent counters for successful and failed attempts during the current user session.
+*   **Security Simulations**: Includes visual noise and distortion for text captchas and tolerance ranges for slider captchas.
+*   **Responsive Design**: Fully functional across desktop and mobile browsers.
 
 ## Setup
-*   This application is a static HTML page and does not require any backend server or external dependencies.
-*   To run the project locally, clone the repository or download the source files.
-*   Open the `index.html` file in any modern web browser (Chrome, Firefox, Safari, or Edge).
+*   This application is a static web project consisting of HTML, CSS, and JavaScript.
+*   To run the project locally, clone the repository to your machine.
+*   Open the `index.html` file directly in any modern web browser.
+*   No external dependencies, servers, or build tools are required.
 
 ## Usage
-1.  Navigate to the application URL to see a randomly generated math problem (e.g., "5 + 3 = ?").
-2.  Type the correct numerical answer into the input field.
-3.  Click the **Verify** button to check your answer.
-4.  If the answer is correct, a green success message will be displayed.
-5.  If the answer is incorrect, a red error message will appear, and the captcha will automatically refresh with a new problem.
-6.  If the current problem is difficult to read or solve, click the **Refresh** button to generate a new math problem manually.
+1.  Select the desired captcha type from the dropdown menu located at the top of the interface.
+2.  **Math Captcha**: Calculate the result of the random arithmetic expression and enter it into the input field.
+3.  **Text Captcha**: Observe the distorted alphanumeric string rendered on the canvas and type the characters exactly as shown.
+4.  **Slider Captcha**: Click and drag the slider handle to the target position indicated on the track. Release it within the acceptable tolerance range.
+5.  Click the "Verify" or "Submit" button to check your answer.
+6.  View the "Success" and "Failure" counters at the bottom to track your session progress.
 
 ## Implementation Details
-*   **Tech Stack:** Built using standard HTML5, CSS3 for styling, and Vanilla JavaScript for logic.
-*   **Logic Flow:** The application uses JavaScript's `Math.random()` function to pick two integers between 1 and 10. The sum is calculated and stored as the "correct answer." When the user submits, the input is compared against this stored value.
-*   **Styling:** Responsive CSS ensures the captcha interface is centered and usable on both desktop and mobile devices.
+*   **Technical Stack**: Built using standard HTML5, CSS3, and Vanilla JavaScript.
+*   **Logic**: The application uses a central state management system to track the current captcha type and session scores.
+*   **Canvas Rendering**: The Text Captcha utilizes the HTML5 Canvas API to apply rotations, font variations, and random noise lines to prevent simple OCR bypass.
+*   **Validation**: Each captcha type has a specific validation logic—mathematical equality for Math, string comparison for Text, and coordinate proximity for the Slider.
 
 ## Code Structure
-*   **HTML Structure:** Contains the container for the math problem display, the text input for the user's answer, and the action buttons (Verify and Refresh).
-*   **State Management:** JavaScript variables track the current numbers and the expected result.
-*   **Event Handlers:** Functions are attached to the "Verify" button for validation logic and the "Refresh" button for re-triggering the generation logic.
-*   **DOM Manipulation:** JavaScript is used to update the text content of the captcha display and the visibility/color of the feedback messages.
+*   **UI Layer**: HTML structure defines the containers for the three captcha types and the statistics dashboard.
+*   **Styling**: CSS handles the layout, the visual "noise" of the canvas, and the interactive states of the slider.
+*   **Core Logic**: JavaScript functions handle the generation of random challenges, the event listeners for user input, and the logic for updating session statistics.
+*   **State Management**: Functions are used to reset and re-render the UI whenever the captcha type is changed or a verification attempt is completed.
 
 ## Evaluation Criteria
-*   Captcha generates a random math problem on page load
-*   Correct answer shows a success message
-*   Wrong answer shows an error and refreshes the captcha
-*   There is a refresh button to get a new captcha
+*   There are three captcha types selectable via dropdown
+*   Math captcha works with random problems
+*   Text captcha renders distorted text on a Canvas element
+*   Slider captcha requires dragging to a target position
+*   Session stats for success and failure counts are visible
 
 ## License
-This project is licensed under the MIT License - Kradarsh
+*This project is licensed under the MIT License*
 
 > Note: Generated and automatically deployed using <a href="https://github.com/Kr-Adarsh/Automated-LLM-Code-Deployment/">Kr-Adarsh/Automated-LLM-Code-Deployment</a>.

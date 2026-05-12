@@ -3,30 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Captcha Verification</title>
+    <title>Advanced Multi-Type Captcha</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for the refresh icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="captcha-card">
-            <h1>Security Check</h1>
-            <p class="instruction">Please solve the math problem below to verify you are human.</p>
-            
-            <div class="captcha-display">
-                <div id="captcha-text" class="captcha-code"></div>
-                <button id="refresh-btn" class="icon-btn" title="Get new captcha">
-                    <i class="fas fa-redo-alt"></i>
+            <h1>Security Verification</h1>
+            <p class="subtitle">Please complete the captcha to continue.</p>
+
+            <div class="stats-container">
+                <div class="stat-box success">
+                    <span class="label">Success</span>
+                    <span id="successCount" class="value">0</span>
+                </div>
+                <div class="stat-box failure">
+                    <span class="label">Failed</span>
+                    <span id="failureCount" class="value">0</span>
+                </div>
+            </div>
+
+            <div class="selector-group">
+                <label for="captchaTypeSelector">Select Captcha Type:</label>
+                <select id="captchaTypeSelector">
+                    <option value="math">Math Challenge</option>
+                    <option value="text">Text Recognition</option>
+                    <option value="slider">Slider Puzzle</option>
+                </select>
+            </div>
+
+            <div id="captchaDisplayArea" class="captcha-display">
+                <!-- Dynamic Captcha Content -->
+            </div>
+
+            <div id="inputArea" class="input-area">
+                <input type="text" id="captchaInput" placeholder="Enter answer" autocomplete="off">
+            </div>
+
+            <div class="action-buttons">
+                <button id="refreshBtn" class="secondary-btn" title="Refresh Captcha">
+                    <i class="fas fa-sync-alt"></i>
                 </button>
+                <button id="verifyBtn" class="primary-btn">Verify</button>
             </div>
 
-            <div class="input-group">
-                <input type="number" id="user-input" placeholder="Enter your answer" autocomplete="off">
-                <button id="verify-btn">Verify</button>
-            </div>
-
-            <div id="message" class="message"></div>
+            <div id="feedback" class="feedback-message"></div>
         </div>
     </div>
     <script src="script.js"></script>
